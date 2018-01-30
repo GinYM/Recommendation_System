@@ -78,7 +78,7 @@ public class FirstRatings {
             for(CSVRecord record: records){
                 id = record.get("rater_id");
                 if(!getRater.keySet().contains(id)){
-                    getRater.put(id,new Rater(id));
+                    getRater.put(id,new EfficientRater(id));
                 }
                 Rater rt = getRater.get(id);
                 if(!rt.hasRating(record.get("movie_id"))){

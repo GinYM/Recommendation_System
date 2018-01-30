@@ -13,7 +13,7 @@ public class MovieRunnerAverage {
         String lowestName = "";
         double lowest = 12;
         for(Rating rt: r){
-            System.out.println("Rating: "+rt.getValue()+" Title: "+rating.getTitle(rt.getItem()));
+            //System.out.println("Rating: "+rt.getValue()+" Title: "+rating.getTitle(rt.getItem()));
             if(rt.getValue()<lowest){
                 lowest = rt.getValue();
                 lowestName = rating.getTitle(rt.getItem());
