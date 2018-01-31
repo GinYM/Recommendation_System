@@ -152,10 +152,14 @@ public class FourthRatings {
     public ArrayList<Rating> getSimilarRatings(String id, int numSimilarRaters, int minimalRaters){
         ArrayList<Rating> sim = getSimilarities(id);
         //System.out.println("sim is !!!"+sim.size());
+        
         ArrayList<Rating> ret = new ArrayList<Rating>();
         ArrayList<String> movies = MovieDatabase.filterBy(new TrueFilter());
         //System.out.println("Movies size: "+movies.size());
         //ArrayList<Rater> leftRater = new ArrayList<Rater>();
+        if(sim.size() == 0){
+            return ret;
+        }
         int countRater = 0;
         Rater curRater;
         double rate = 0.0;
@@ -164,7 +168,7 @@ public class FourthRatings {
             
             countRater = 0;
             allRating = 0.0;
-            for(int i = 0;i<numSimilarRaters;i++){
+            for(int i = 0;i<numSimilarRaters && i<sim.size();i++){
                 curRater = RaterDatabase.getRater(sim.get(i).getItem());
                 rate = curRater.getRating(mv);
                 if(rate!=-1){
